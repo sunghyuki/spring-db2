@@ -17,7 +17,6 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.util.StringUtils;
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -25,10 +24,10 @@ import java.util.Optional;
 /**
  * NamedParameterJdbcTemplate
  * SqlParameterSource
- *  - BeanPropertySqlParameterSource
- *  - MapSqlParameterSource
+ * - BeanPropertySqlParameterSource
+ * - MapSqlParameterSource
  * Map
- *
+ * <p>
  * BeanPropertyRowMapper
  */
 @Slf4j

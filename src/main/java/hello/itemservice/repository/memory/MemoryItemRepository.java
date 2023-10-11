@@ -7,7 +7,10 @@ import hello.itemservice.repository.ItemUpdateDto;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.ObjectUtils;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Repository
@@ -41,18 +44,18 @@ public class MemoryItemRepository implements ItemRepository {
         String itemName = cond.getItemName();
         Integer maxPrice = cond.getMaxPrice();
         return store.values().stream()
-                .filter(item -> {
-                    if (ObjectUtils.isEmpty(itemName)) {
-                        return true;
-                    }
-                    return item.getItemName().contains(itemName);
-                }).filter(item -> {
+                    .filter(item -> {
+                        if (ObjectUtils.isEmpty(itemName)) {
+                            return true;
+                        }
+                        return item.getItemName().contains(itemName);
+                    }).filter(item -> {
                     if (maxPrice == null) {
                         return true;
                     }
                     return item.getPrice() <= maxPrice;
                 })
-                .collect(Collectors.toList());
+                    .collect(Collectors.toList());
     }
 
     public void clearStore() {
